@@ -1,3 +1,4 @@
+import GamesGrid from "./components/GamesGrid";
 import NavBar from "./components/NavBar";
 import setTheme from "./utility/setTheme";
 
@@ -10,7 +11,9 @@ function App() {
         <NavBar />
       </nav>
       <aside className=" bg-red-700 hidden lg:block">Aside</aside>
-      <main className=" bg-emerald-800">Main</main>
+      <main className=" bg-emerald-800">
+        <GamesGrid />
+      </main>
     </div>
   );
 }
