@@ -1,4 +1,5 @@
 import { Game } from "../hooks/app/useGames";
+import getCroppedImageUrl from "../services/getCroppedUrlImage";
 import CardIconsList from "./CardIconsList";
 import CriticBadge from "./CriticBadge";
 
@@ -15,7 +16,7 @@ const GameCard: React.FC<Props> = ({
     <div className="max-w-xl mx-auto rounded-[5px] overflow-hidden shadow-lg bg-gray-400 text-black dark:bg-dark-secondary dark:text-white">
       <img
         className="w-full"
-        src={background_image}
+        src={getCroppedImageUrl(background_image)}
         alt="Sunset in the mountains"
       />
       <div className="px-6 py-4">
