@@ -23,9 +23,11 @@ type GameFetchResponse = {
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [errMsg, setErrMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const abort = new AbortController();
+    setIsLoading(true);
 
     apiClient
       .get<GameFetchResponse>("/games", {
@@ -34,12 +36,13 @@ const useGames = () => {
       .then((response) => {
         setGames(response.data.results);
         setErrMsg("");
+        setIsLoading(false);
       })
       .catch((err) => setErrMsg((err as Error).message));
 
     return () => abort.abort();
   }, []);
-  return { games, errMsg };
+  return { games, errMsg, isLoading };
 };
 
 export default useGames;
