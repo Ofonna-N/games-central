@@ -11,7 +11,7 @@ function App() {
         <NavBar />
       </nav>
       <aside className=" bg-red-700 hidden lg:block">Aside</aside>
-      <main className=" bg-emerald-800">
+      <main className="">
         <GamesGrid />
       </main>
     </div>

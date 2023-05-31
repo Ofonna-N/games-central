@@ -4,6 +4,7 @@ import apiClient from "../../services/api-client";
 type Game = {
   id: number;
   name: string;
+  background_image: string;
 };
 
 type GameFetchResponse = {
@@ -16,12 +17,19 @@ const useGames = () => {
   const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
+    const abort = new AbortController();
+
     apiClient
-      .get<GameFetchResponse>("/games")
+      .get<GameFetchResponse>("/games", {
+        signal: abort.signal,
+      })
       .then((response) => {
         setGames(response.data.results);
+        setErrMsg("");
       })
       .catch((err) => setErrMsg((err as Error).message));
+
+    return () => abort.abort();
   }, []);
   return { games, errMsg };
 };
