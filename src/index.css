@@ -6,4 +6,13 @@
   html {
     font-size: 62.6%;
   }
+
+  html.dark {
+    color: whitesmoke;
+    background-color: #151515;
+  }
+
+  body {
+    font-size: 1.6rem;
+  }
 }

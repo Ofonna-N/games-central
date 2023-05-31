@@ -1,18 +1,11 @@
 import NavBar from "./components/NavBar";
+import setTheme from "./utility/setTheme";
 
 function App() {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
+  setTheme();
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2">
-      <nav className=" bg-orange-500 lg:col-span-2">
+    <div className="grid grid-cols-1 lg:grid-cols-2 px-[2rem]">
+      <nav className=" lg:col-span-2">
         <NavBar />
       </nav>
       <aside className=" bg-red-700 hidden lg:block">Aside</aside>
