@@ -2,10 +2,11 @@ import useGenres, { Genre } from "../hooks/app/useGenres";
 import Spinnner from "./Spinnner";
 
 type Prop = {
+  selectedGenre: Genre | null;
   onGenreSelected: (genre: Genre) => void;
 };
 
-const GenresList = ({ onGenreSelected }: Prop) => {
+const GenresList = ({ selectedGenre, onGenreSelected }: Prop) => {
   const { data, isLoading } = useGenres();
 
   //   const onGenreSelected = (genre: Genre) => {
@@ -19,7 +20,11 @@ const GenresList = ({ onGenreSelected }: Prop) => {
         {data.map((genre) => (
           <li key={genre.id}>
             <button
-              className="hover:underline"
+              className={`hover:underline transition-all ${
+                selectedGenre?.id === genre.id
+                  ? "underline font-bold text-[2.3rem]"
+                  : ""
+              }`}
               onClick={() => onGenreSelected(genre)}
             >
               {genre.name}

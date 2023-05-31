@@ -16,7 +16,10 @@ function App() {
         <NavBar />
       </nav>
       <aside className="hidden col-span-1 lg:block">
-        <GenresList onGenreSelected={(genre) => setSelectedGenre(genre)} />
+        <GenresList
+          selectedGenre={selectedGenre}
+          onGenreSelected={(genre) => setSelectedGenre(genre)}
+        />
       </aside>
       <main className="col-span-1">
         <GamesGrid selectedGenre={selectedGenre} />
