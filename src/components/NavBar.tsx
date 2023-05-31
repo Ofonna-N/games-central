@@ -3,7 +3,7 @@ import ColorModeSwitch from "./ColorModeSwitch";
 
 const NavBar = () => {
   return (
-    <div className="flex items-center gap-2 justify-between py-[1.5rem]">
+    <div className="flex items-center gap-2 justify-between py-[2.5rem]">
       <img src={logo} alt="site logo" />
 
       <ColorModeSwitch />

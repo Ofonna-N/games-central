@@ -8,11 +8,12 @@
   }
 
   html.dark {
-    color: whitesmoke;
+    color: hsl(0, 0%, 96%);
     background-color: #151515;
   }
 
   body {
     font-size: 1.6rem;
+    color: #151515;
   }
 }
