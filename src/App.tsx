@@ -7,8 +7,8 @@ function App() {
   setTheme();
 
   return (
-    <div className="grid px-[2rem]">
-      <nav className="grid-rows-1 lg:col-span-2 ">
+    <div className="grid px-[2rem] lg:grid-cols-side-main">
+      <nav className="grid-rows-1 lg:col-span-2">
         <NavBar />
       </nav>
       <aside className="hidden col-span-1 lg:block">

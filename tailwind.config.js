@@ -8,6 +8,9 @@ export default {
         "dark-primary": "#151515",
         "dark-secondary": "#202020",
       },
+      gridTemplateColumns: {
+        "side-main": "220px minmax(0, 1fr)",
+      },
     },
   },
   plugins: [],
