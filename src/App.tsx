@@ -11,7 +11,7 @@ function App() {
       <nav className="grid-rows-1 lg:col-span-2 ">
         <NavBar />
       </nav>
-      <aside className=" bg-red-700 hidden col-span-1 lg:block">
+      <aside className="hidden col-span-1 lg:block">
         <GenresList />
       </aside>
       <main className="col-span-1">

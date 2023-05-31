@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import apiClient from "../../services/api-client";
+import useData from "./useData";
 
 export type Genre = {
   id: number;
@@ -7,34 +6,6 @@ export type Genre = {
   image_background: string;
 };
 
-type GenreFetchResponse = {
-  count: number;
-  results: Genre[];
-};
-
-const useGenres = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
-  const [errMsg, setErrMsg] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const abort = new AbortController();
-    setIsLoading(true);
-
-    apiClient
-      .get<GenreFetchResponse>("/genres", {
-        signal: abort.signal,
-      })
-      .then((response) => {
-        setGenres(response.data.results);
-        setErrMsg("");
-        setIsLoading(false);
-      })
-      .catch((err) => setErrMsg((err as Error).message));
-
-    return () => abort.abort();
-  }, []);
-  return { genres, errMsg, isLoading };
-};
+const useGenres = () => useData<Genre>("/genres");
 
 export default useGenres;
