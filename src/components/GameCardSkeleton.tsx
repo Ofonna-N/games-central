@@ -1,6 +1,8 @@
+import GameCardWrapper from "./GameCardWrapper";
+
 const GameCardSkeleton = () => {
   return (
-    <div className="max-w-xl mx-auto rounded-[5px] overflow-hidden shadow-lg bg-gray-400 text-black dark:bg-dark-secondary dark:text-white">
+    <GameCardWrapper>
       <div className="animate-pulse">
         <div className="bg-slate-600 w-full h-[25rem]"></div>
         <div className="px-6 py-4">
@@ -11,7 +13,7 @@ const GameCardSkeleton = () => {
           </div>
         </div>
       </div>
-    </div>
+    </GameCardWrapper>
   );
 };
 

@@ -2,6 +2,7 @@ import { Game } from "../hooks/app/useGames";
 import getCroppedImageUrl from "../services/getCroppedUrlImage";
 import CardIconsList from "./CardIconsList";
 import CriticBadge from "./CriticBadge";
+import GameCardWrapper from "./GameCardWrapper";
 
 type Props = {
   game: Game;
@@ -13,7 +14,7 @@ const GameCard: React.FC<Props> = ({
   game: { background_image, name, parent_platforms, metacritic },
 }) => {
   return (
-    <div className="max-w-xl mx-auto rounded-[5px] overflow-hidden shadow-lg bg-gray-400 text-black dark:bg-dark-secondary dark:text-white">
+    <GameCardWrapper>
       <img
         className="w-full"
         src={getCroppedImageUrl(background_image)}
@@ -26,7 +27,7 @@ const GameCard: React.FC<Props> = ({
           <CriticBadge criticNo={metacritic} />
         </div>
       </div>
-    </div>
+    </GameCardWrapper>
   );
 };
 
