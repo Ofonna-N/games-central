@@ -14,7 +14,7 @@ const GamesGrid = ({ gameQuery }: Props) => {
   return (
     <>
       <p>{errMsg}</p>
-      <ul className="grid grid-cols-1 gap-[2rem] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <ul className="grid grid-cols-1 gap-[2rem] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {isLoading &&
           Array.from({ length: 20 }).map((_, i) => (
             <li key={i}>

@@ -21,11 +21,11 @@ const GameCard: React.FC<Props> = ({
         alt="Sunset in the mountains"
       />
       <div className="px-6 py-4">
-        <h3 className="font-bold text-[2.5rem] mb-2">{name}</h3>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mb-[1rem]">
           <CardIconsList parent_platform={parent_platforms} />
           <CriticBadge criticNo={metacritic} />
         </div>
+        <h3 className="font-bold text-[2.5rem] mb-2">{name}</h3>
       </div>
     </GameCardWrapper>
   );
