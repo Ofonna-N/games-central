@@ -12,6 +12,7 @@ export type GameQuery = {
   genre: Genre | null;
   platform: Platform | null;
   sort: string;
+  searchText: string;
 };
 
 function App() {
@@ -26,7 +27,12 @@ function App() {
   return (
     <div className="grid px-[1rem] sm:px-[2rem] lg:grid-cols-side-main">
       <nav className="grid-rows-1 lg:col-span-2">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) => {
+            // console.log("search Text", searchText);
+            setGameQuery({ ...gameQuery, searchText });
+          }}
+        />
       </nav>
       <aside className="hidden col-span-1 lg:block">
         <GenresList
