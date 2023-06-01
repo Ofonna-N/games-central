@@ -7,13 +7,19 @@ import { Genre } from "./hooks/app/useGenres";
 import PlatformsFilter from "./components/PlatformsFilter";
 import { Platform } from "./hooks/app/useGames";
 
+export type GameQuery = {
+  genre: Genre | null;
+  platform: Platform | null;
+};
+
 function App() {
   setTheme();
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatfom, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  // const [selectedPlatfom, setSelectedPlatform] = useState<Platform | null>(
+  //   null
+  // );
 
   return (
     <div className="grid px-[2rem] lg:grid-cols-side-main">
@@ -22,19 +28,18 @@ function App() {
       </nav>
       <aside className="hidden col-span-1 lg:block">
         <GenresList
-          selectedGenre={selectedGenre}
-          onGenreSelected={(genre) => setSelectedGenre(genre)}
+          selectedGenre={gameQuery.genre}
+          onGenreSelected={(genre) => setGameQuery({ ...gameQuery, genre })}
         />
       </aside>
       <main className="col-span-1">
         <PlatformsFilter
-          selectedPlatform={selectedPlatfom}
-          setSelectedPlatform={(platform) => setSelectedPlatform(platform)}
+          selectedPlatform={gameQuery.platform}
+          setSelectedPlatform={(platform) =>
+            setGameQuery({ ...gameQuery, platform })
+          }
         />
-        <GamesGrid
-          selectedGenre={selectedGenre}
-          selectedPlatform={selectedPlatfom}
-        />
+        <GamesGrid gameQuery={gameQuery} />
       </main>
     </div>
   );
