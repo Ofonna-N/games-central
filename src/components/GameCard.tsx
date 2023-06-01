@@ -28,8 +28,8 @@ const GameCard: React.FC<Props> = ({
         </div>
         <h3 className="font-bold text-[2.5rem] mb-2">{name}</h3>
         <ul className="flex text-yellow-500">
-          {Array.from({ length: Math.floor(rating) }).map((_) => (
-            <li>
+          {Array.from({ length: Math.floor(rating) }).map((_, i) => (
+            <li key={i}>
               <AiFillStar />
             </li>
           ))}
