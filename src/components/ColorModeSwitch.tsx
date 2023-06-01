@@ -22,7 +22,9 @@ const ColorModeSwitch = () => {
       className="flex items-center cursor-pointer gap-[1rem]"
       htmlFor="switch"
     >
-      <h3 className="text-gray-950 font-bold dark:text-white">Dark Mode</h3>
+      <h3 className="text-gray-950 font-bold whitespace-nowrap dark:text-white">
+        Dark Mode
+      </h3>
 
       <div className="relative">
         <input
