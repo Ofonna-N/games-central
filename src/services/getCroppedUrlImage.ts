@@ -1,5 +1,7 @@
+import noImg from "../assets/no-img.webp";
+
 const getCroppedImageUrl = (url: string) => {
-  if (!url) return "";
+  if (!url) return noImg;
   const target = "media/";
   const crop = "crop/600/400/";
 
