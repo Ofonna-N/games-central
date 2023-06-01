@@ -16,7 +16,7 @@ const DropDown = ({ children, title }: Props) => {
         onClick={() => {
           setToggle((prev) => !prev);
         }}
-        onBlur={() => setTimeout(() => setToggle(false), 100)}
+        onBlur={() => setTimeout(() => setToggle(false), 200)}
       >
         {title}
         <span className="text-[2.5rem]">
