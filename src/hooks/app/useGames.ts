@@ -24,7 +24,7 @@ const useGames = (gameQuery: GameQuery) =>
         platforms: gameQuery.platform?.id,
       },
     },
-    [gameQuery.genre?.id, gameQuery.platform?.id]
+    [gameQuery]
   );
 
 export default useGames;
