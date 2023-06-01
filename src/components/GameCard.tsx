@@ -3,6 +3,7 @@ import getCroppedImageUrl from "../services/getCroppedUrlImage";
 import CardIconsList from "./CardIconsList";
 import CriticBadge from "./CriticBadge";
 import GameCardWrapper from "./GameCardWrapper";
+import { AiFillStar } from "react-icons/ai";
 
 type Props = {
   game: Game;
@@ -11,7 +12,7 @@ type Props = {
 };
 
 const GameCard: React.FC<Props> = ({
-  game: { background_image, name, parent_platforms, metacritic },
+  game: { background_image, name, parent_platforms, metacritic, rating },
 }) => {
   return (
     <GameCardWrapper>
@@ -26,6 +27,13 @@ const GameCard: React.FC<Props> = ({
           <CriticBadge criticNo={metacritic} />
         </div>
         <h3 className="font-bold text-[2.5rem] mb-2">{name}</h3>
+        <ul className="flex text-yellow-500">
+          {Array.from({ length: Math.floor(rating) }).map((_) => (
+            <li>
+              <AiFillStar />
+            </li>
+          ))}
+        </ul>
       </div>
     </GameCardWrapper>
   );
