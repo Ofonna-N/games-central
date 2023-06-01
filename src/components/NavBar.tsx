@@ -1,4 +1,3 @@
-import logo from "../assets/react.svg";
 import ColorModeSwitch from "./ColorModeSwitch";
 import Searchbar from "./Searchbar";
 
@@ -9,7 +8,7 @@ type Props = {
 const NavBar = ({ onSearch }: Props) => {
   return (
     <div className="flex items-center gap-[2rem] w-full py-[2.5rem]">
-      <img src={logo} alt="site logo" />
+      <img src={"/logo.png"} className="w-[5rem]" alt="site logo" />
       <Searchbar onSearch={onSearch} />
       <ColorModeSwitch />
     </div>
