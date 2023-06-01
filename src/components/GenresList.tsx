@@ -18,8 +18,8 @@ const GenresList = ({ selectedGenre, onGenreSelected }: Prop) => {
     <>
       <h2 className="font-bold text-[2.5rem] mb-[2rem]">Genres</h2>
       {isLoading && <Spinnner />}
-      <ul className="text-white text-[2rem] flex flex-col gap-[1rem]">
-        {data.map((genre) => (
+      <ul className="text-[2rem] flex flex-col gap-[1rem]">
+        {(data as Genre[]).map((genre) => (
           <li key={genre.id}>
             <button
               className={`hover:underline transition-all flex gap-[7px] text-left items-center ${

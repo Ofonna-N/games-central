@@ -8,6 +8,8 @@ export default {
         "dark-primary": "#151515",
         "dark-secondary": "#202020",
         "dark-secondary-bright": "#333333",
+        "light-secondary": "#bfbfbf",
+        "light-secondary-bright": "#d9d9d9",
       },
       gridTemplateColumns: {
         "side-main": "220px minmax(0, 1fr)",

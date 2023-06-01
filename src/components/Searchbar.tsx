@@ -29,7 +29,7 @@ const Searchbar = ({ onSearch }: Props) => {
           type="text"
           id="simple-search"
           ref={searchBarRef}
-          className="bg-gray-100 border border-gray-300 text-gray-900 rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-[3rem] p-2.5  dark:bg-dark-secondary dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:focus-within:bg-dark-secondary-bright"
+          className="bg-light-secondary border border-gray-300 text-gray-900 rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-[3rem] p-2.5  dark:bg-dark-secondary dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:focus-within:bg-dark-secondary-bright"
           placeholder="Search games..."
         />
       </div>

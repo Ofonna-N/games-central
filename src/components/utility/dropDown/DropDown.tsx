@@ -11,8 +11,8 @@ const DropDown = ({ children, title }: Props) => {
   return (
     <div className="relative py-[2rem] dark:text-white">
       <button
-        className="bg-dark-secondary font-bold px-[1rem] py-[1rem] gap-[1rem] rounded-xl 
-        flex items-center justify-between text-[1.8rem] mb-1 hover:bg-dark-secondary-bright"
+        className="bg-light-secondary hover:bg-light-secondary-bright dark:bg-dark-secondary font-bold px-[1rem] py-[1rem] gap-[1rem] rounded-xl 
+        flex items-center justify-between text-[1.8rem] mb-1 dark:hover:bg-dark-secondary-bright"
         onClick={() => {
           setToggle((prev) => !prev);
         }}
@@ -24,7 +24,7 @@ const DropDown = ({ children, title }: Props) => {
         </span>
       </button>
       <ul
-        className={`bg-dark-secondary absolute py-[1rem] w-[20rem] rounded-xl max-h-[40rem] overflow-auto ${
+        className={`bg-light-secondary hover:bg-light-secondary-bright dark:bg-dark-secondary absolute py-[1rem] w-[20rem] rounded-xl max-h-[40rem] overflow-auto ${
           toggle ? "block" : "hidden"
         } shadow-xl shadow-black`}
       >

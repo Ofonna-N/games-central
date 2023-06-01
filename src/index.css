@@ -4,23 +4,22 @@
 
 @layer base {
   html {
+    --primary: #151515;
     font-size: 62.6%;
   }
 
   html.dark {
-    color: whitesmoke;
+    --primary: whitesmoke;
+    color: var(--color-primary);
     background-color: #151515;
   }
 
-  dark h1,
-  h2,
-  h3,
-  h4 {
+  .dark :is(h1, h2, h3, h4, button) {
     color: whitesmoke;
   }
 
   body {
     font-size: 1.6rem;
-    color: #151515;
+    color: var(--color-primary);
   }
 }
