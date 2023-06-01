@@ -1,3 +1,4 @@
+import genres from "../../data/genres";
 import useData from "./useData";
 
 export type Genre = {
@@ -7,6 +8,11 @@ export type Genre = {
   slug: string;
 };
 
-const useGenres = () => useData<Genre>("/genres");
+// const useGenres = () => useData<Genre>("/genres");
+const useGenres = (): ReturnType<typeof useData> => ({
+  data: genres,
+  errMsg: "",
+  isLoading: false,
+});
 
 export default useGenres;

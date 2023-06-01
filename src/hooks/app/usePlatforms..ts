@@ -1,13 +1,12 @@
+import platforms from "../../data/platforms";
 import useData from "./useData";
-import { Platform } from "./useGames";
+// import { Platform } from "./useGames";
 
-// export type Genre = {
-//   id: number;
-//   name: string;
-//   image_background: string;
-//   slug: string;
-// };
-
-const usePlatorms = () => useData<Platform>("/platforms");
+// const usePlatorms = () => useData<Platform>("/platforms");
+const usePlatorms = (): ReturnType<typeof useData> => ({
+  data: platforms,
+  errMsg: "",
+  isLoading: false,
+});
 
 export default usePlatorms;
