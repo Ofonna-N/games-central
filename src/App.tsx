@@ -7,6 +7,7 @@ import { Genre } from "./hooks/app/useGenres";
 import PlatformsFilter from "./components/PlatformsFilter";
 import { Platform } from "./hooks/app/useGames";
 import SortingSelector from "./components/SortingSelector";
+import GameHeading from "./components/GameHeading";
 
 export type GameQuery = {
   genre: Genre | null;
@@ -41,6 +42,7 @@ function App() {
         />
       </aside>
       <main className="col-span-1">
+        <GameHeading gameQuery={gameQuery} />
         <div className="flex gap-[2rem]">
           <PlatformsFilter
             selectedPlatform={gameQuery.platform}
