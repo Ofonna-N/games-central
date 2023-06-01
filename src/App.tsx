@@ -11,6 +11,7 @@ import SortingSelector from "./components/SortingSelector";
 export type GameQuery = {
   genre: Genre | null;
   platform: Platform | null;
+  sort: string;
 };
 
 function App() {
@@ -41,7 +42,10 @@ function App() {
               setGameQuery({ ...gameQuery, platform })
             }
           />
-          <SortingSelector />
+          <SortingSelector
+            selectedSort={gameQuery.sort}
+            onSortClicked={(sort) => setGameQuery({ ...gameQuery, sort })}
+          />
         </div>
         <GamesGrid gameQuery={gameQuery} />
       </main>
