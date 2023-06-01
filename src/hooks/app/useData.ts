@@ -28,10 +28,13 @@ const useData = <T>(
         })
         .then((response) => {
           setData(response.data.results);
-          setErrMsg("");
           setIsLoading(false);
         })
-        .catch((err) => setErrMsg((err as Error).message));
+        .catch((err) => {
+          // console.log(err);
+          if (err.message == "canceled") return;
+          setErrMsg((err as Error).message);
+        });
 
       return () => abort.abort();
     },
