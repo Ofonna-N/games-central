@@ -11,7 +11,7 @@ const DropDown = ({ children, title }: Props) => {
   return (
     <div className="relative py-[2rem] dark:text-white">
       <button
-        className="bg-dark-secondary font-bold px-[1rem] py-[1rem] w-[20rem] rounded-xl flex items-center justify-between text-[1.8rem] mb-1"
+        className="bg-dark-secondary font-bold px-[1rem] py-[1rem] min-w-[20rem] rounded-xl flex items-center justify-between text-[1.8rem] mb-1"
         onClick={() => {
           setToggle((prev) => !prev);
         }}
