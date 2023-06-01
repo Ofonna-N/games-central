@@ -29,7 +29,7 @@ const CardIconsList = ({ parent_platform }: Props) => {
   };
 
   return (
-    <ul className="flex gap-[1rem] text-gray-500 text-[2rem]">
+    <ul className="flex gap-[1rem] flex-wrap text-gray-500 text-[2rem]">
       {parent_platform.map(({ platform }) => (
         <li key={platform.id}>{iconMap[platform.slug]}</li>
       ))}
