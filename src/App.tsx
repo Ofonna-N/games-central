@@ -26,8 +26,8 @@ function App() {
   // );
 
   return (
-    <div className="grid px-[1rem] sm:px-[2rem] lg:grid-cols-side-main">
-      <nav className="grid-rows-1 lg:col-span-2">
+    <div className="grid lg:grid-cols-side-main">
+      <nav className="grid-rows-1 px-[1rem] sm:px-[2rem] lg:col-span-2 shadow-lg mb-4">
         <NavBar
           onSearch={(searchText) => {
             // console.log("search Text", searchText);
@@ -35,13 +35,13 @@ function App() {
           }}
         />
       </nav>
-      <aside className="hidden col-span-1 lg:block">
+      <aside className="hidden pl-[1rem] sm:pl-[2rem] col-span-1 lg:block">
         <GenresList
           selectedGenre={gameQuery.genre}
           onGenreSelected={(genre) => setGameQuery({ ...gameQuery, genre })}
         />
       </aside>
-      <main className="col-span-1">
+      <main className="col-span-1 px-[1rem] sm:px-[2rem]">
         <GameHeading gameQuery={gameQuery} />
         <div className="flex gap-[2rem]">
           <PlatformsFilter
