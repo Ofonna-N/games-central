@@ -24,7 +24,7 @@ function App() {
   // );
 
   return (
-    <div className="grid px-[2rem] lg:grid-cols-side-main">
+    <div className="grid px-[1rem] sm:px-[2rem] lg:grid-cols-side-main">
       <nav className="grid-rows-1 lg:col-span-2">
         <NavBar />
       </nav>
