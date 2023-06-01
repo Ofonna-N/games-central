@@ -6,6 +6,7 @@ import setTheme from "./utility/setTheme";
 import { Genre } from "./hooks/app/useGenres";
 import PlatformsFilter from "./components/PlatformsFilter";
 import { Platform } from "./hooks/app/useGames";
+import SortingSelector from "./components/SortingSelector";
 
 export type GameQuery = {
   genre: Genre | null;
@@ -33,12 +34,15 @@ function App() {
         />
       </aside>
       <main className="col-span-1">
-        <PlatformsFilter
-          selectedPlatform={gameQuery.platform}
-          setSelectedPlatform={(platform) =>
-            setGameQuery({ ...gameQuery, platform })
-          }
-        />
+        <div className="flex gap-[2rem]">
+          <PlatformsFilter
+            selectedPlatform={gameQuery.platform}
+            setSelectedPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform })
+            }
+          />
+          <SortingSelector />
+        </div>
         <GamesGrid gameQuery={gameQuery} />
       </main>
     </div>
