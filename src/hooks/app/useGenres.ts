@@ -9,10 +9,14 @@ export type Genre = {
 };
 
 // const useGenres = () => useData<Genre>("/genres");
-const useGenres = (): ReturnType<typeof useData> => ({
-  data: genres,
-  errMsg: "",
-  isLoading: false,
-});
+// const useGenres = (): ReturnType<typeof useData> => ({
+//   data: genres,
+//   errMsg: "",
+//   isLoading: false,
+// });
+
+const useGenres = () => {
+  cont;
+};
 
 export default useGenres;
