@@ -17,7 +17,7 @@ const PlatformsFilter = ({ selectedPlatform, setSelectedPlatform }: Props) => {
       <DropDownItem onItemClick={() => setSelectedPlatform(null)}>
         All
       </DropDownItem>
-      {(data as Platform[]).map((platform) => (
+      {data?.results.map((platform) => (
         <DropDownItem
           key={platform.id}
           onItemClick={() => {

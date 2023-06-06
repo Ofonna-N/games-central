@@ -9,9 +9,9 @@ type Props = {
 };
 
 const GamesGrid = ({ gameQuery }: Props) => {
-  const { data, errMsg, isLoading } = useGames(gameQuery);
+  const { data, error, isLoading } = useGames(gameQuery);
   // console.log(selectedPlatform);
-  if (errMsg) return <p>{errMsg}</p>;
+  if (error) return <p>{error.message}</p>;
   return (
     <ul className="grid grid-cols-1 gap-[2rem] md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {isLoading &&
@@ -20,7 +20,7 @@ const GamesGrid = ({ gameQuery }: Props) => {
             <GameCardSkeleton />
           </li>
         ))}
-      {data.map((game) => (
+      {data?.results.map((game) => (
         <li key={game.id}>
           <GameCard game={game} />
         </li>
