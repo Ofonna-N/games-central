@@ -1,8 +1,9 @@
 import { useQuery } from "react-query";
 import platforms from "../../data/platforms";
-import useData, { FetchResponse } from "./useData";
+
 import { Platform } from "./useGames";
-import apiClient from "../../services/api-client";
+import APIClient, { FetchResponse } from "../../services/api-client";
+
 // import { Platform } from "./useGames";
 
 // const usePlatorms = () => useData<Platform>("/platforms/lists/parents");
@@ -11,14 +12,12 @@ import apiClient from "../../services/api-client";
 //   errMsg: "",
 //   isLoading: false,
 // });
+const apiclient = new APIClient<Platform>("/platforms/lists/parents");
 
 const usePlatorms = () =>
   useQuery<FetchResponse<Platform>, Error, FetchResponse<Platform>>(
-    ["platforms"],
-    () =>
-      apiClient
-        .get<FetchResponse<Platform>>("/platforms/lists/parents")
-        .then((res) => res.data)
+    ["platfroms"],
+    apiclient.getAll
   );
 
 export default usePlatorms;

@@ -9,7 +9,7 @@ type Prop = {
 
 const GenresList = ({ selectedGenre, onGenreSelected }: Prop) => {
   const { data, isLoading } = useGenres();
-  console.log(data);
+  // console.log(data);
   //   const onGenreSelected = (genre: Genre) => {
   //     console.log(genre);
   //   };

@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import genres from "../../data/genres";
-import apiClient from "../../services/api-client";
-import useData, { FetchResponse } from "./useData";
+
+import APIClient, { FetchResponse } from "../../services/api-client";
 
 export type Genre = {
   id: number;
@@ -17,9 +17,12 @@ export type Genre = {
 //   isLoading: false,
 // });
 
+const apiclient = new APIClient<Genre>("/genres");
+
 const useGenres = () =>
-  useQuery(["genres"], () =>
-    apiClient.get<FetchResponse<Genre>>("/genres").then((res) => res.data)
+  useQuery<FetchResponse<Genre>, Error, FetchResponse<Genre>>(
+    ["genres"],
+    apiclient.getAll
   );
 
 export default useGenres;

@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import { GameQuery } from "../../App";
-import useData, { FetchResponse } from "./useData";
-import apiClient from "../../services/api-client";
+import APIClient, { FetchResponse } from "../../services/api-client";
 
 export type Platform = {
   id: number;
@@ -32,15 +31,28 @@ export type Game = {
 //     [gameQuery]
 //   );
 
+const apiClient = new APIClient<Game>("/games");
+
 const useGames = (gameQuery: GameQuery) =>
-  useQuery<FetchResponse<Game>, Error, FetchResponse<Game>>(["games"], () =>
-    apiClient
-      .get<FetchResponse<Game>>("/games", {
+  useQuery<FetchResponse<Game>, Error, FetchResponse<Game>>(
+    [
+      "games",
+      {
+        genres: gameQuery.genre?.id,
+        parent_platforms: gameQuery.platform?.id,
+        search: gameQuery.searchText,
+        sort: gameQuery.sort,
+      },
+    ],
+    () =>
+      apiClient.getAll({
         params: {
-          ...gameQuery,
+          genres: gameQuery.genre?.id,
+          parent_platforms: gameQuery.platform?.id,
+          search: gameQuery.searchText,
+          sort: gameQuery.sort,
         },
       })
-      .then((res) => res.data)
   );
 
 export default useGames;
