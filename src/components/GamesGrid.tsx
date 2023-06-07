@@ -19,8 +19,8 @@ const GamesGrid = ({ gameQuery }: Props) => {
   const dataLength =
     data?.pages.reduce((total, current) => current.results.length + total, 0) ||
     0;
-  console.log("data length: ", dataLength);
-  console.log("pages: ", data?.pages);
+  // console.log("data length: ", dataLength);
+  // console.log("pages: ", data?.pages);
   return (
     <InfiniteScroll
       dataLength={dataLength} //This is important field to render the next data
