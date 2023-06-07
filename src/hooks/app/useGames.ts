@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import { GameQuery } from "../../App";
 import APIClient, { FetchResponse } from "../../services/api-client";
 
@@ -33,26 +33,26 @@ export type Game = {
 
 const apiClient = new APIClient<Game>("/games");
 
-const useGames = (gameQuery: GameQuery) =>
-  useQuery<FetchResponse<Game>, Error, FetchResponse<Game>>(
-    [
-      "games",
-      {
-        genres: gameQuery.genre?.id,
-        parent_platforms: gameQuery.platform?.id,
-        search: gameQuery.searchText,
-        sort: gameQuery.sort,
-      },
-    ],
-    () =>
+const useGames = (gameQuery: GameQuery) => {
+  const queryParam = {
+    genres: gameQuery.genre?.id,
+    parent_platforms: gameQuery.platform?.id,
+    search: gameQuery.searchText,
+    sort: gameQuery.sort,
+  };
+
+  return useInfiniteQuery<FetchResponse<Game>, Error, FetchResponse<Game>>(
+    ["games", queryParam],
+    ({ pageParam = 1 }) =>
       apiClient.getAll({
-        params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
-          search: gameQuery.searchText,
-          sort: gameQuery.sort,
-        },
-      })
+        params: { ...queryParam, page: pageParam },
+      }),
+    {
+      getNextPageParam: (lastPage, allpages) =>
+        lastPage.next ? allpages.length + 1 : undefined,
+      // undefined,
+    }
   );
+};
 
 export default useGames;
