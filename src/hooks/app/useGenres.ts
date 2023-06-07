@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import genres from "../../data/genres";
 
 import APIClient, { FetchResponse } from "../../services/api-client";
 

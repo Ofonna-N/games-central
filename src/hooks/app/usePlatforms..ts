@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import platforms from "../../data/platforms";
 
 import { Platform } from "./useGames";
 import APIClient, { FetchResponse } from "../../services/api-client";
