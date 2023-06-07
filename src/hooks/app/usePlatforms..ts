@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 
 import { Platform } from "./useGames";
 import APIClient, { FetchResponse } from "../../services/api-client";
+import platforms from "../../data/platforms";
 
 // import { Platform } from "./useGames";
 
@@ -16,7 +17,8 @@ const apiclient = new APIClient<Platform>("/platforms/lists/parents");
 const usePlatorms = () =>
   useQuery<FetchResponse<Platform>, Error, FetchResponse<Platform>>(
     ["platfroms"],
-    apiclient.getAll
+    apiclient.getAll,
+    { initialData: platforms }
   );
 
 export default usePlatorms;
