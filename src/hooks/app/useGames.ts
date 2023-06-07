@@ -1,6 +1,7 @@
 import { useInfiniteQuery, useQuery } from "react-query";
 import { GameQuery } from "../../App";
 import APIClient, { FetchResponse } from "../../services/api-client";
+import ms from "ms";
 
 export type Platform = {
   id: number;
@@ -51,6 +52,7 @@ const useGames = (gameQuery: GameQuery) => {
       getNextPageParam: (lastPage, allpages) =>
         lastPage.next ? allpages.length + 1 : undefined,
       // undefined,
+      staleTime: ms("24h"),
     }
   );
 };

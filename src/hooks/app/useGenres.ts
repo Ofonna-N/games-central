@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 
 import APIClient, { FetchResponse } from "../../services/api-client";
 import genres from "../../data/genres";
+import ms from "ms";
 
 export type Genre = {
   id: number;
@@ -23,7 +24,7 @@ const useGenres = () =>
   useQuery<FetchResponse<Genre>, Error, FetchResponse<Genre>>(
     ["genres"],
     apiclient.getAll,
-    { initialData: genres }
+    { initialData: genres, staleTime: ms("24h") }
   );
 
 export default useGenres;
