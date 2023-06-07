@@ -5,7 +5,6 @@ import useGames from "../hooks/app/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Spinnner from "./Spinnner";
 
 type Props = {
   gameQuery: GameQuery;
@@ -26,7 +25,7 @@ const GamesGrid = ({ gameQuery }: Props) => {
     <InfiniteScroll
       dataLength={dataLength} //This is important field to render the next data
       next={() => fetchNextPage()}
-      hasMore={!!true}
+      hasMore={!!hasNextPage}
       loader={<p className="text-white py-[1rem]">loading...</p>}
       endMessage={
         <p className="text-yellow-500 mt-5 text-3xl">Yay! you've seen it all</p>

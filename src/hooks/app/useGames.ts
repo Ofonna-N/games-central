@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import { GameQuery } from "../../App";
 import APIClient, { FetchResponse } from "../../services/api-client";
 import ms from "ms";
