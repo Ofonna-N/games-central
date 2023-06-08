@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { Platform } from "../hooks/app/useGames";
 import { Genre } from "../hooks/app/useGenres";
+import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export type GameQuery = {
   genre?: Genre | null;
@@ -19,11 +20,17 @@ type QueryStore = {
 
 const useQueryStore = create<QueryStore>((set) => ({
   gameQuery: {},
-  setGenre: (genre) => set((state) => ({ gameQuery: { ...state, genre } })),
+  setGenre: (genre) =>
+    set((state) => ({ gameQuery: { ...state.gameQuery, genre } })),
   setPlatform: (platform) =>
-    set((state) => ({ gameQuery: { ...state, platform } })),
-  setSort: (sort) => set((state) => ({ gameQuery: { ...state, sort } })),
+    set((state) => ({ gameQuery: { ...state.gameQuery, platform } })),
+  setSort: (sort) =>
+    set((state) => ({ gameQuery: { ...state.gameQuery, sort } })),
   setSearchText: (searchText) => set(() => ({ gameQuery: { searchText } })),
 }));
+
+if (process.env.NODE_ENV === "development") {
+  mountStoreDevtool("queryStore", useQueryStore);
+}
 
 export default useQueryStore;
