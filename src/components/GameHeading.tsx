@@ -5,7 +5,7 @@ const GameHeading = () => {
   const genre = useQueryStore((state) => state.gameQuery.genre);
 
   return (
-    <h1 className="text-white font-bold text-[3rem]">
+    <h1 className="text-dark-primary dark:text-white font-bold text-[3rem]">
       {platform?.name || ""} {genre?.name || ""} Games
     </h1>
   );

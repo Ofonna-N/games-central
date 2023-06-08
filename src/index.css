@@ -10,7 +10,7 @@
 
   html.dark {
     --primary: whitesmoke;
-    color: var(--color-primary);
+    color: var(--primary);
     background-color: #151515;
   }
 
