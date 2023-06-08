@@ -1,11 +1,10 @@
 import { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
+import useQueryStore from "../store/GameQueryStore";
 
-type Props = {
-  onSearch: (searchValue: string) => void;
-};
+const Searchbar = () => {
+  const onSearch = useQueryStore((state) => state.setSearchText);
 
-const Searchbar = ({ onSearch }: Props) => {
   const searchBarRef = useRef<HTMLInputElement>(null);
 
   const onSubmitSearch = (e: React.FormEvent<HTMLFormElement>) => {

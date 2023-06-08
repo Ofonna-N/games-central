@@ -1,27 +1,23 @@
-import { Platform } from "../hooks/app/useGames";
 import usePlatforms from "../hooks/app/usePlatforms.";
+import useQueryStore from "../store/GameQueryStore";
 
 import DropDown from "./utility/dropDown/DropDown";
 import DropDownItem from "./utility/dropDown/DropDownItem";
 
-type Props = {
-  selectedPlatform: Platform | null;
-  setSelectedPlatform: (platform: Platform | null) => void;
-};
+const PlatformsFilter = () => {
+  const selectedPlatform = useQueryStore((state) => state.gameQuery.platform);
+  const setPlatform = useQueryStore((state) => state.setPlatform);
 
-const PlatformsFilter = ({ selectedPlatform, setSelectedPlatform }: Props) => {
   const { data } = usePlatforms();
 
   return (
     <DropDown title={selectedPlatform?.name || "Platforms"}>
-      <DropDownItem onItemClick={() => setSelectedPlatform(null)}>
-        All
-      </DropDownItem>
+      <DropDownItem onItemClick={() => setPlatform(null)}>All</DropDownItem>
       {data?.results.map((platform) => (
         <DropDownItem
           key={platform.id}
           onItemClick={() => {
-            setSelectedPlatform(platform);
+            setPlatform(platform);
           }}
         >
           {platform.name}

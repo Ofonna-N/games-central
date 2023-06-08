@@ -1,13 +1,12 @@
-import { GameQuery } from "../App";
+import useQueryStore from "../store/GameQueryStore";
 
-type Props = {
-  gameQuery: GameQuery;
-};
+const GameHeading = () => {
+  const platform = useQueryStore((state) => state.gameQuery.platform);
+  const genre = useQueryStore((state) => state.gameQuery.genre);
 
-const GameHeading = ({ gameQuery }: Props) => {
   return (
     <h1 className="text-white font-bold text-[3rem]">
-      {gameQuery.platform?.name || ""} {gameQuery.genre?.name || ""} Games
+      {platform?.name || ""} {genre?.name || ""} Games
     </h1>
   );
 };

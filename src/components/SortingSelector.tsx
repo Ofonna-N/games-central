@@ -1,3 +1,4 @@
+import useQueryStore from "../store/GameQueryStore";
 import DropDown from "./utility/dropDown/DropDown";
 import DropDownItem from "./utility/dropDown/DropDownItem";
 
@@ -10,20 +11,17 @@ const sortOrders = [
   { value: "-rating", label: "Average Rating" },
 ];
 
-type Props = {
-  selectedSort: string;
-  onSortClicked: (sort: string) => void;
-};
-const SortingSelector = ({ selectedSort, onSortClicked }: Props) => {
+const SortingSelector = () => {
+  const selectedSort = useQueryStore((state) => state.gameQuery.sort);
+
+  const setSort = useQueryStore((state) => state.setSort);
+
   const sort = sortOrders.find((value) => value.value === selectedSort);
 
   return (
     <DropDown title={sort?.label || "Relevance"}>
       {sortOrders.map((sort) => (
-        <DropDownItem
-          key={sort.label}
-          onItemClick={() => onSortClicked(sort.value)}
-        >
+        <DropDownItem key={sort.label} onItemClick={() => setSort(sort.value)}>
           {sort.label}
         </DropDownItem>
       ))}
