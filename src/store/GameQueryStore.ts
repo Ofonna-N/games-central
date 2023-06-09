@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { Platform } from "../hooks/app/useGames";
-import { Genre } from "../hooks/app/useGenres";
+import { Platform } from "../types/Platform";
+import { Genre } from "../types/Genre";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export type GameQuery = {

@@ -1,7 +1,7 @@
 import ms from "ms";
 import { useQuery } from "react-query";
 import APIClient from "../../services/api-client";
-import { Game } from "./useGames";
+import { Game } from "../../types/Game";
 
 const client = new APIClient("/games");
 

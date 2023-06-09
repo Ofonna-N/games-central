@@ -3,37 +3,7 @@ import { useInfiniteQuery } from "react-query";
 import APIClient, { FetchResponse } from "../../services/api-client";
 import ms from "ms";
 import { GameQuery } from "../../store/GameQueryStore";
-
-export type Platform = {
-  id: number;
-  name: string;
-  slug: string;
-};
-
-export type Game = {
-  id: number;
-  name: string;
-  slug: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  description_raw: string;
-  metacritic: number;
-  rating: number;
-};
-
-// const useGames = (gameQuery: GameQuery) =>
-//   useData<Game>(
-//     "/games",
-//     {
-//       params: {
-//         genres: gameQuery.genre?.id,
-//         platforms: gameQuery.platform?.id,
-//         ordering: gameQuery.sort,
-//         search: gameQuery.searchText,
-//       },
-//     },
-//     [gameQuery]
-//   );
+import { Game } from "../../types/Game";
 
 const apiClient = new APIClient<Game>("/games");
 
