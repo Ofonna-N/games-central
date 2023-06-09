@@ -5,6 +5,7 @@ import ExpandableText from "../components/utility/expandableText/ExpandableText"
 import DefinitionList from "../components/utility/definitionList/DefinitionList";
 import CriticBadge from "../components/CriticBadge";
 import GameAttributes from "../components/GameAttributes";
+import GameTrailer from "../components/GameTrailer";
 
 const GameDetailPage = () => {
   const { slug } = useParams();
@@ -23,6 +24,7 @@ const GameDetailPage = () => {
       <h1 className="text-[4rem] font-bold">{game.name}</h1>
       <ExpandableText text={game.description_raw} />
       <GameAttributes game={game} />
+      <GameTrailer id={game.id} />
     </div>
   );
 };
