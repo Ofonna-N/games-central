@@ -1,4 +1,4 @@
-import { Game } from "../types/Game";
+import Game from "../types/Game";
 import CriticBadge from "./CriticBadge";
 import DefinitionList from "./utility/definitionList/DefinitionList";
 

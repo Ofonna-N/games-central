@@ -1,7 +1,7 @@
 import ms from "ms";
 import { useQuery } from "react-query";
 import APIClient, { FetchResponse } from "../../services/api-client";
-import { Trailer } from "../../types/Trailer";
+import Trailer from "../../types/Trailer";
 
 const useGameTrailer = (id: number) => {
   const client = new APIClient<Trailer>(`/games/${id}/movies`);

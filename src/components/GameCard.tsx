@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Game } from "../types/Game";
+import Game from "../types/Game";
 import getCroppedImageUrl from "../services/getCroppedUrlImage";
 import CardIconsList from "./CardIconsList";
 import CriticBadge from "./CriticBadge";

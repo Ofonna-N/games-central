@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import APIClient, { FetchResponse } from "../../services/api-client";
 import genres from "../../data/genres";
 import ms from "ms";
-import { Genre } from "../../types/Genre";
+import Genre from "../../types/Genre";
 
 const apiclient = new APIClient<Genre>("/genres");
 

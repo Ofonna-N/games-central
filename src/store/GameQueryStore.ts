@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { Platform } from "../types/Platform";
-import { Genre } from "../types/Genre";
+import Platform from "../types/Platform";
+import Genre from "../types/Genre";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export type GameQuery = {

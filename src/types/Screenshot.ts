@@ -1,5 +1,6 @@
-export type Screenshot = {
+type Screenshot = {
   id: number;
 
   image: string;
 };
+export default Screenshot;
