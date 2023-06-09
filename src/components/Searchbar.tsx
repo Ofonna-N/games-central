@@ -1,10 +1,11 @@
 import { useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import useQueryStore from "../store/GameQueryStore";
+import { useNavigate } from "react-router-dom";
 
 const Searchbar = () => {
   const onSearch = useQueryStore((state) => state.setSearchText);
-
+  const navigate = useNavigate();
   const searchBarRef = useRef<HTMLInputElement>(null);
 
   const onSubmitSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -13,6 +14,7 @@ const Searchbar = () => {
     if (searchBarRef.current) {
       onSearch(searchBarRef.current.value);
     }
+    navigate("/");
   };
 
   return (
