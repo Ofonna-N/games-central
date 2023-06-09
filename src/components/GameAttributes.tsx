@@ -8,7 +8,7 @@ type Props = {
 
 const GameAttributes = ({ game }: Props) => {
   return (
-    <div className="grid grid-cols-2 mt-[2rem] gap-4">
+    <div className="grid grid-cols-2 gap-4">
       <DefinitionList
         title={"Platforms"}
         detail={game.parent_platforms.map((p) => p.platform.name)}

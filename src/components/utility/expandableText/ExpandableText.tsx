@@ -16,11 +16,11 @@ const ExpandableText = ({ text }: Props) => {
   const summary = aboveLimit && !expanded ? text.slice(0, limit) + "..." : text;
 
   return (
-    <p>
+    <p className="mb-6">
       {summary}{" "}
       {aboveLimit && (
         <button
-          className="bg-green-600 px-3 py-1 rounded-md ml-2"
+          className="underline cursor-pointer px-3 py-1 rounded-md ml-2"
           onClick={() => setExpanded((prev) => !prev)}
         >
           {expanded ? "show less" : "show more"}
