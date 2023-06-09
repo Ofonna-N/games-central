@@ -14,6 +14,8 @@ const GameTrailer = ({ id }: Props) => {
 
   const firstVideo = data?.results[0];
 
+  if (!firstVideo) return null;
+
   //   console.log("Trailer: ", data?.results);
 
   return (
